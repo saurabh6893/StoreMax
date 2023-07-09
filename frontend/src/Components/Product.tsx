@@ -1,18 +1,30 @@
 import { Card } from "react-bootstrap";
 import { Product } from "../Products";
+import { Link } from "react-router-dom";
+import Rating from "./Rating";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Card className="my-3 py-3 rounded">
-      <a href={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} variant="top" />
-      </a>
+      </Link>
       <Card.Body>
-        <a href={`/product/${product._id}`}>
-          <Card.Title as="div">
+        <Link to={`/product/${product._id}`}>
+          <Card.Title as="div" className="product-title">
             <strong>{product.name}</strong>
           </Card.Title>
-        </a>
+        </Link>
+
+        <Card.Text as="div">
+          <Rating value={product.rating} text={`${product.numReviews} reviews`} />
+        </Card.Text>
+
+
+        <Card.Text as="h3">
+          ${product.price}
+        </Card.Text>
+
       </Card.Body>
     </Card>
   );
