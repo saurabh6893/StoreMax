@@ -6,7 +6,7 @@ export interface Product {
     brand: string;
     category: string;
     price: number;
-    countInStock: number;
+    countInStock: number | undefined;
     rating: number;
     numReviews: number;
 }
