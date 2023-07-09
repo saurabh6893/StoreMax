@@ -1,6 +1,13 @@
 
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'
-const Rating = ({ value, text }) => {
+interface RatingProps {
+    value: number;
+    text: string;
+}
+
+
+
+const Rating: React.FC<RatingProps> = ({ value, text }) => {
     return (
         <div className="rating">
             <span>
