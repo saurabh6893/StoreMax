@@ -1,15 +1,15 @@
 {
   "name": "storemax",
   "version": "1.0.0",
-  "description": "Backend for Storemax",
+  "description": "backend for storemax",
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node Server/server.js"
+    "start": "node server/server.js"
   },
   "repository": "git@github.com:saurabh6893/StoreMax.git",
   "author": "saurabh kedar <saurabhkedar@gmail.com>",
-  "license": "Na",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
   }
