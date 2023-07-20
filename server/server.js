@@ -1,18 +1,26 @@
 import express from "express";
+import dotenv from "dotenv";
 import products from "./data/products.js";
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 
-
 app.get("/", (req, res) => {
-  res.send("Api is smashing..");
+  res.send("Api is smashing......");
 });
 
-app.get('/api/products',(req,res)=>{
-    res.json(products)
-})
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find((p) => p._id === req.params.id);
+  res.json(product);
+});
 
-app.listen(port, () => console.log(`Server is running on ${port}`));
+app.get("/api/products", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Methods", "GET");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.json(products);
+});
 
-
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
