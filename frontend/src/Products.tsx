@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductInterface {
     _id: string;
     name: string;
     image: string;
@@ -11,7 +11,7 @@ export interface Product {
     numReviews: number;
 }
 
-const products: Product[] = [
+const products: ProductInterface[] = [
     {
         _id: '1',
         name: 'Airpods Wireless Bluetooth Headphones',

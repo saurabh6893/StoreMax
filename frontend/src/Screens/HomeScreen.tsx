@@ -2,12 +2,12 @@ import { Row, Col } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import ProductCard from "../Components/ProductCard"
-import { Product } from "../Products"
+import { ProductInterface } from "../Products"
 
 
 
 const HomeScreen = () => {
-    const [products, setProducts] = useState<Product[]>([])
+    const [products, setProducts] = useState<ProductInterface[]>([])
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -30,7 +30,7 @@ const HomeScreen = () => {
             <Row>
                 {products.map((product) => (
                     <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
-                        <ProductCard product={product}  />
+                        <ProductCard product={product} />
                     </Col>
                 ))}
             </Row>

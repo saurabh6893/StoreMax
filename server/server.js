@@ -1,11 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import products from "./data/products.js";
+import connectToDb from "./config/db.js";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
+connectToDb()
 const app = express();
-
 // Middleware for handling CORS
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -37,12 +38,6 @@ app.get("/api/products", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
-
-
-
-
-
 
 // previous codebase
 // import express from "express";
